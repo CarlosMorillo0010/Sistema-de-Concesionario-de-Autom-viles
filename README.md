@@ -1,59 +1,301 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🚗 Sistema de Concesionario de Automóviles
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Sistema web para la gestión de vehículos en un concesionario, desarrollado con **Laravel 12**, **Tailwind CSS**, **Alpine.js** y **Vite**. Permite registrar, visualizar, editar y eliminar automóviles con autenticación de usuarios integrada.
 
-## About Laravel
+---
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+## 📋 Tabla de Contenidos
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+- [Características](#-características)
+- [Requisitos del Sistema](#-requisitos-del-sistema)
+- [Instalación](#-instalación)
+- [Configuración de Base de Datos](#-configuración-de-base-de-datos)
+- [Credenciales de Prueba](#-credenciales-de-prueba)
+- [Uso](#-uso)
+- [Tests](#-tests)
+- [Estructura del Proyecto](#-estructura-del-proyecto)
+- [Tecnologías Utilizadas](#-tecnologías-utilizadas)
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+---
 
-## Learning Laravel
+## ✨ Características
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+- ✅ Autenticación completa (registro, login, recuperación de contraseña) con **Laravel Breeze**
+- ✅ CRUD completo de automóviles (crear, listar, ver, editar, eliminar)
+- ✅ Búsqueda y filtrado por marca o nombre de modelo
+- ✅ Carga de imágenes para cada vehículo
+- ✅ Paginación de resultados
+- ✅ Validación de formularios (lado servidor)
+- ✅ Panel de administración
+- ✅ Diseño responsivo con Tailwind CSS
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+---
 
-## Laravel Sponsors
+## 🖥️ Requisitos del Sistema
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+Asegúrate de tener instalado lo siguiente antes de comenzar:
 
-### Premium Partners
+| Herramienta | Versión mínima |
+|-------------|----------------|
+| PHP         | 8.2 o superior |
+| Composer    | 2.x            |
+| Node.js     | 18.x o superior|
+| npm         | 9.x o superior |
+| MySQL       | 5.7 o superior |
+| Git         | Cualquier versión reciente |
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+> **Recomendado para Windows**: Usar [WAMP](https://www.wampserver.com/) o [Laragon](https://laragon.org/).
 
-## Contributing
+---
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## ⚙️ Instalación
 
-## Code of Conduct
+Sigue estos pasos en orden para configurar el proyecto localmente:
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+### 1. Clonar el repositorio
 
-## Security Vulnerabilities
+```bash
+git clone https://github.com/CarlosMorillo0010/Sistema-de-Concesionario-de-Autom-viles.git
+cd Sistema-de-Concesionario-de-Autom-viles
+```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+### 2. Instalar dependencias PHP
 
-## License
+```bash
+composer install
+```
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+### 3. Copiar el archivo de entorno
+
+```bash
+cp .env.example .env
+```
+
+> En Windows (PowerShell):
+> ```powershell
+> copy .env.example .env
+> ```
+
+### 4. Generar la clave de la aplicación
+
+```bash
+php artisan key:generate
+```
+
+### 5. Instalar dependencias de Node.js
+
+```bash
+npm install
+```
+
+### 6. Compilar los assets (CSS y JS)
+
+```bash
+npm run build
+```
+
+> Para desarrollo con recarga automática usa:
+> ```bash
+> npm run dev
+> ```
+
+---
+
+## 🗄️ Configuración de Base de Datos
+
+### 1. Crear la base de datos
+
+Crea una base de datos MySQL vacía desde tu gestor (phpMyAdmin, MySQL Workbench, etc.):
+
+```sql
+CREATE DATABASE concesionario CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+```
+
+### 2. Configurar el archivo `.env`
+
+Abre el archivo `.env` y actualiza las credenciales de tu base de datos:
+
+```env
+DB_CONNECTION=mysql
+DB_HOST=127.0.0.1
+DB_PORT=3306
+DB_DATABASE=concesionario
+DB_USERNAME=root
+DB_PASSWORD=
+```
+
+### 3. Ejecutar las migraciones
+
+Crea todas las tablas en la base de datos:
+
+```bash
+php artisan migrate
+```
+
+### 4. Poblar la base de datos con datos de prueba
+
+```bash
+php artisan db:seed
+```
+
+Esto crea:
+- Un usuario administrador de prueba
+- Registros de autos de ejemplo
+
+### 5. Crear el enlace de almacenamiento (imágenes)
+
+```bash
+php artisan storage:link
+```
+
+---
+
+## 🔑 Credenciales de Prueba
+
+Después de ejecutar el seeder, puedes iniciar sesión con:
+
+| Campo      | Valor               |
+|------------|---------------------|
+| Email      | `admin@test.com`    |
+| Contraseña | `123456789`         |
+
+---
+
+## ▶️ Uso
+
+### Iniciar el servidor de desarrollo
+
+```bash
+php artisan serve
+```
+
+Luego abre tu navegador en: **[http://127.0.0.1:8000](http://127.0.0.1:8000)**
+
+> Si usas WAMP, el proyecto estará disponible en: **http://localhost/concesionario/public**
+
+### Rutas principales
+
+| Ruta              | Descripción                         |
+|-------------------|-------------------------------------|
+| `/`               | Página principal / listado de autos |
+| `/cars`           | Catálogo de vehículos               |
+| `/cars/create`    | Registrar nuevo vehículo            |
+| `/cars/{id}`      | Ver detalle de un vehículo          |
+| `/cars/{id}/edit` | Editar vehículo                     |
+| `/login`          | Iniciar sesión                      |
+| `/register`       | Crear nueva cuenta                  |
+| `/dashboard`      | Panel de administración             |
+
+---
+
+## 🧪 Tests
+
+El proyecto usa **PestPHP** como framework de testing.
+
+### Ejecutar todos los tests
+
+```bash
+php artisan test
+```
+
+O alternativamente:
+
+```bash
+./vendor/bin/pest
+```
+
+### Ejecutar solo tests de autenticación
+
+```bash
+php artisan test --filter=Auth
+```
+
+### Ejecutar solo tests de perfil
+
+```bash
+php artisan test --filter=ProfileTest
+```
+
+### Ver output detallado
+
+```bash
+php artisan test --verbose
+```
+
+### Tests incluidos
+
+| Archivo de Test                              | Descripción                                      |
+|----------------------------------------------|--------------------------------------------------|
+| `tests/Feature/Auth/AuthenticationTest.php`  | Login, logout y acceso autenticado               |
+| `tests/Feature/Auth/RegistrationTest.php`    | Registro de nuevos usuarios                      |
+| `tests/Feature/Auth/PasswordResetTest.php`   | Recuperación de contraseña                       |
+| `tests/Feature/Auth/PasswordUpdateTest.php`  | Actualización de contraseña                      |
+| `tests/Feature/Auth/EmailVerificationTest.php` | Verificación de correo electrónico             |
+| `tests/Feature/Auth/PasswordConfirmationTest.php` | Confirmación de contraseña                  |
+| `tests/Feature/ProfileTest.php`              | Ver, editar y eliminar perfil de usuario         |
+
+> **Nota**: Los tests usan la base de datos de testing. Se recomienda configurar `DB_CONNECTION=sqlite` en el archivo `phpunit.xml` o usar una base de datos separada para no afectar los datos de desarrollo.
+
+---
+
+## 📁 Estructura del Proyecto
+
+```
+concesionario/
+├── app/
+│   ├── Http/
+│   │   ├── Controllers/
+│   │   │   ├── CarController.php        # CRUD de vehículos
+│   │   │   └── Auth/                    # Controladores de autenticación
+│   │   ├── Requests/
+│   │   │   ├── StoreCarRequest.php      # Validación al crear auto
+│   │   │   └── UpdateCarRequest.php     # Validación al editar auto
+│   │   └── Middleware/
+│   ├── Models/
+│   │   ├── Car.php                      # Modelo de Vehículo
+│   │   └── User.php                     # Modelo de Usuario
+├── database/
+│   ├── migrations/                      # Estructura de tablas
+│   ├── seeders/
+│   │   ├── DatabaseSeeder.php           # Seeder principal
+│   │   └── CarSeeder.php                # Datos de autos de ejemplo
+│   └── factories/
+│       └── CarFactory.php               # Factory para generar autos
+├── resources/
+│   └── views/
+│       ├── cars/                        # Vistas CRUD de autos
+│       ├── auth/                        # Vistas de autenticación
+│       ├── admin/                       # Panel de administración
+│       └── layouts/                     # Layouts base
+├── routes/
+│   ├── web.php                          # Rutas web principales
+│   └── auth.php                         # Rutas de autenticación
+└── tests/
+    └── Feature/                         # Tests de funcionalidad
+```
+
+---
+
+## 🛠️ Tecnologías Utilizadas
+
+| Tecnología      | Versión  | Uso                              |
+|-----------------|----------|----------------------------------|
+| Laravel         | ^12.0    | Framework PHP principal          |
+| Laravel Breeze  | ^2.4     | Autenticación                    |
+| Tailwind CSS    | ^3.1     | Estilos y diseño responsivo      |
+| Alpine.js       | ^3.4     | Interactividad en el frontend    |
+| Vite            | ^7.0     | Compilación de assets            |
+| PestPHP         | ^3.8     | Framework de testing             |
+| MySQL           | 5.7+     | Base de datos                    |
+
+---
+
+## 🤝 Contribuciones
+
+Las contribuciones son bienvenidas. Por favor abre un **Issue** para reportar un bug o sugerir una nueva característica, y un **Pull Request** para contribuir con código.
+
+---
+
+## 📄 Licencia
+
+Este proyecto está bajo la licencia **MIT**. Consulta el archivo [LICENSE](LICENSE) para más detalles.
